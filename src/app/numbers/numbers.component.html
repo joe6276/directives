@@ -1,0 +1,55 @@
+<br>
+<div class="container">
+   <div class="row">
+       <div class="col-xs-6">
+        <button class="btn btn-primary"  (click)="changeNumbers()">
+            Toogle Number
+        </button>
+       </div>
+   </div>
+    <br>
+    <div *ngIf="change">
+        <li class="list-group-item"
+        *ngFor="let items of odd"
+        [ngStyle]="{backgroundColor:items %2 ==0? 'indigo':'yellow'}"
+        >
+        {{items}}
+ 
+        </li>
+    </div>
+
+<!-- 
+    <div *ngIf="!change">
+        <li class="list-group-item"
+        *ngFor="let items of even"
+        [ngClass]="{odd:items % 2==0}"
+        >
+        {{items}}
+ 
+        </li>
+    </div> -->
+
+
+
+    <div *appStructuralDirective="change">
+        <li class="list-group-item"
+        *ngFor="let items of even"
+        [ngClass]="{odd:items % 2==0}"
+        >
+        {{items}}
+ 
+        </li>
+    </div>
+
+    <p basicHighlighter> Hello am Coral</p>
+    <p appBetterDirective> Hello am Coral</p>
+
+
+    <h2>Ng Switch</h2>
+    <div [ngSwitch]="value">
+        <p *ngSwitchCase="5">Value is 5</p>
+        <p *ngSwitchCase="10">Value is 10</p>
+        <p *ngSwitchCase="100">Value is 100</p>
+        <p *ngSwitchDefault> This is a DefaultCase </p>
+    </div>
+</div>
